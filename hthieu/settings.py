@@ -1,4 +1,4 @@
-from env.settings_dev import *
+from settings_local import *
 
 # Django settings for hthieu project.
 ADMINS = (
