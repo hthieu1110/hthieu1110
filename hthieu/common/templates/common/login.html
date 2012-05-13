@@ -1,0 +1,35 @@
+{% extends 'common/template.html' %}
+
+{% block title %} Private page {% endblock %}
+
+{% block appName %} Hthieu's family {% endblock %}
+
+{% block content %}
+    <div id="login-form" class="well offset3 span3">
+        <h4>Login</h4>
+        <form method="post">{% csrf_token %}
+            {% for field in form %}
+                {% if field.is_hidden %}<div>{{ field }}</div>{% endif %}
+            {% endfor %}
+
+            <table>
+                <tr>
+                    <td class="span2">{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="action" value="common_login">
+                        <input type="submit" name="post" class="btn btn-primary pull-right" value="Login" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}

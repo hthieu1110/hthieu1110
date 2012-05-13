@@ -1,0 +1,5 @@
+<form class="delete" action="{% url common_empty_trash %}" method="post">{% csrf_token %}
+    <a class="btnDelete btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Empty trash</a>
+    <input type="hidden" name="next" value="{{ request.path }}" />
+</form>
+

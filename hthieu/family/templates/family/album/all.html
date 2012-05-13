@@ -1,0 +1,9 @@
+{% extends 'family/base.html' %}
+
+{% load familyAlbum %}
+
+{% block content %}
+    <h3>Admin - All albums</h3>
+
+    {% include 'family/album/_list.html' %}
+{% endblock %}

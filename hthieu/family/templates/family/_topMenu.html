@@ -1,0 +1,35 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/">
+                <img width="18px" height="18px" src="{{ STATIC_URL }}common/img/logo.jpg" />
+                {% block appName %}Family{% endblock %}
+            </a>
+            <ul class="nav pull-right">
+                <li class="divider-vertical"></li>
+                <li class="dropdown">
+                    {% if user.is_authenticated %}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            {{ user.first_name }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url album_family %}">Family albums</a></li>
+                            <li><a href="{% url album_mines %}">My albums</a></li>
+                            <li class="divider">fd</li>
+                            {% if user.is_superuser %}
+                                <li><a href="{% url album_all %}">Admin - All</a></li>
+                                <li><a href="{% url album_trash %}">Admin - Trash</a></li>
+                                <li class="divider"></li>
+                            {% endif %}
+                            <li><a href="{% url common_logout %}">Logout</a></li>
+                        </ul>
+                    {% else %}
+                        <a href="{% url common_login %}">Login</a></li>
+                    {% endif %}
+                </li>
+                <li class="divider-vertical"></li>
+            </ul>
+        </div>
+    </div>
+</div>

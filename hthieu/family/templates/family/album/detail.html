@@ -1,0 +1,10 @@
+{% extends 'family/base.html' %}
+
+{% load familyPhoto %}
+
+{% block content %}
+    {% familyPhoto_renderUploadForm %}
+    <p><a href="{% url album_family %}"><code>&lt; Back to family's</code></a></p>
+    <p><a href="{% url album_mines %}"><code>&lt; Back to my albums</code></a></p>
+    {% include 'family/photo/_list.html' %}
+{% endblock %}

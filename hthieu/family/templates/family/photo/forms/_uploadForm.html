@@ -1,0 +1,23 @@
+<div id="upload-photo-form">
+    <form class="well form-inline" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% for field in form %}
+            {% if field.is_hidden %}<div>{{ field }}</div>{% endif %}
+        {% endfor %}
+
+        <div class="span4 control-group {% if form.image_origin.errors %}error{% endif %}">
+            {{ form.image_origin }}
+            <span class="help-block">{{ form.image_origin.errors }}</span>
+        </div>
+
+        <div class="span5 control-group {% if form.name.errors %}error{% endif %}">
+            <div class="input-append">
+                {{ form.name }}
+                <input class="btn" type="submit" name="post" value="Upload photo" /></input>
+            </div>
+            <span class="help-block">{{ form.name.errors }}</span>
+        </div>
+
+        <div><input type="hidden" name="action" value="upload_photo"></div>
+        <div class="clearfix"></div>
+    </form>
+</div>

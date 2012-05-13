@@ -1,0 +1,11 @@
+{% extends 'family/base.html' %}
+
+{% load familyAlbum %}
+
+{% block content %}
+    <h3>My albums</h3>
+
+    {% familyAlbum_renderNewForm %}
+
+    {% include 'family/album/_list.html' %}
+{% endblock %}

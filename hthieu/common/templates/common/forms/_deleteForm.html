@@ -1,0 +1,7 @@
+<form class="delete" action="{% url common_delete %}" method="post">{% csrf_token %}
+    <i class="btnDelete icon-trash"></i>
+    <input type="hidden" name="modelName" value="{{ modelName }}" />
+    <input type="hidden" name="id" value="{{ id }}" />
+    <input type="hidden" name="next" value="{{ request.path }}" />
+</form>
+

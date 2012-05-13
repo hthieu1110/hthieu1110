@@ -1,0 +1,29 @@
+<div id="albums">
+    {% for album in albums %}
+        {% if forloop.first %}<div class="row">{% endif %}
+        {% if forloop.counter0|divisibleby:5 and not forloop.first %}
+            </div><div class="row">
+        {% endif %}
+
+        <div class="album span2 thumbnail">
+            {% if user == album.user or perms.family.delete_album %}
+                {% include 'common/forms/_deleteForm.html' with modelName='album' id=album.id %}
+            {% endif %}
+
+            <a href="{% url album_detail album_id=album.id %}">
+                {% with lastUploadedPhoto=album.getLastUploadedPhoto %}
+                    {% if lastUploadedPhoto %}
+                        <img src="{{ lastUploadedPhoto.thumb.url }}" alt="{{ album.name }}" />
+                    {% else %}
+                        <img src="{{ DEFAULT_THUMB_URL }}" alt="There are no photos yet" />
+                    {% endif %}
+                {% endwith %}
+                <div class="caption">{{ album.name }} ({{ album.photo_set.all|length }})</div>
+            </a>
+        </div>
+
+        {% if forloop.last %}</div>{% endif %}
+    {% empty %}
+        <h4 class="well">There are no albums yet.</h4>
+    {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+{% extends 'family/base.html' %}
+
+{% block content %}
+    <h3>Admin - Trash</h3>
+
+    {% if photos %}
+        {% include 'family/album/forms/_emptyTrashForm.html' %}
+    {% endif %}
+
+    {% include 'family/photo/_list.html' %}
+{% endblock %}

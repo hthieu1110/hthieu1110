@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ STATIC_URL }}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet/less" href="{{ STATIC_URL }}common/css/common.less">
+    <link rel="stylesheet/less" href="{{ STATIC_URL }}family/css/family.less">
+    <script type="text/javascript" src="{{ STATIC_URL }}common/js/less.min.js"></script>
+</head>
+<body>
+
+{% include 'family/_topMenu.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            {% include 'common/_message.html' %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="span3"><h3>Where to find me ?</h3></div>
+        <div class="span1"><a href="http://fr.linkedin.com/pub/trong-hieu-ha/24/450/183"><img src="{{ STATIC_URL }}common/img/linkedin.jpeg" alt="Linkedin" /></a></div>
+        <div class="span1"><img src="{{ STATIC_URL }}common/img/gtalk.jpeg" alt="tronghieu.ha@gmail.com" /></div>
+        <div class="span1"><img src="{{ STATIC_URL }}common/img/yahoo.jpeg" alt="hthieu111084@yahoo.com" /></div>
+        <div class="span1"><img src="{{ STATIC_URL }}common/img/skype.jpeg" alt="tronghieu11101984" /></div>
+        <div class="span1"><img src="{{ STATIC_URL }}common/img/msn.jpeg" alt="tronghieu.ha@gmail.com" /></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ STATIC_URL }}common/js/jquery.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}common/js/common.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}family/js/family.js"></script>
+</body>
+</html>
